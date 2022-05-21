@@ -1,0 +1,92 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[pdftex]{hyperref}
+\usepackage[margin=1in]{geometry} % margins
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{multicol}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{tabularx}
+\usepackage{siunitx}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{xspace}
+
+\usepackage{palatino}
+\usepackage{fontawesome}
+\usepackage[font=small]{caption}
+
+\title{Paper title: XXX}
+
+\author{Author A, Author B, and Author C}
+
+\date{}
+
+\renewcommand{\thesection}{\Alph{section}}
+
+\tcbuselibrary{skins}
+
+\newtcolorbox[auto counter,number within=section]{reviewitem}[1][]{%
+fonttitle=\fontfamily{ppl}\selectfont\bfseries\small, fontupper=\fontfamily{ppl}\selectfont\small,title={$\circ$ Review \thetcbcounter},#1,colback=white,left=5pt,right=5pt,top=4pt,bottom=4pt,
+boxrule=0.5pt,toptitle=1pt,bottomtitle=1pt,enhanced}
+
+\newtcbox{mytag}[1][green]{on
+line,boxsep=0pt,left=3.5pt,right=3.5pt,top=2.25pt,bottom=1pt,
+boxrule=0.25pt,
+arc=2pt,colback=#1!10!white,colframe=#1!50!black,coltext=#1!30!black}
+
+\newenvironment{response}[1][green]{
+  \noindent\mytag[#1]{
+    \fontfamily{cmss}\selectfont\textsl{\small
+      \raisebox{0.5pt}{$\triangleright$} Response}\let\par\relax
+    }
+  }{
+    %\begin{center}
+    %  {\Large \textasteriskcentered\textasteriskcentered\textasteriskcentered}
+    %\end{center}
+    \vspace{3ex}
+  }
+
+\newenvironment{action}[1][blue]{
+  \noindent\mytag[#1]{
+    \fontfamily{cmss}\selectfont\textsl{\small
+      \raisebox{0.5pt}{$\triangleright$}\phantom{p}Action}\let\par\relax
+    }
+  }{
+    %\begin{center}
+    %  {\Large \textasteriskcentered\textasteriskcentered\textasteriskcentered}
+    %\end{center}
+    \vspace{3ex}
+  }
+
+\hypersetup{
+    colorlinks,
+    linkcolor={red!60!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black},
+}
+
+\setlength{\parskip}{0.5em}
+
+\begin{document}
+
+\maketitle
+
+\input{review-a}
+
+%\input{review-b}
+
+%\input{review-c}
+
+%\input{review-d}
+
+%\input{review-e}
+
+\input{others}
+
+\end{document}
